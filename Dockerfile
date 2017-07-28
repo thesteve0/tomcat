@@ -15,4 +15,4 @@ EXPOSE 8080
 #USER 1001
 
 #Run tomcat
-CMD /apache-tomcat-8.5.16/bin/startup.sh
+CMD ["/apache-tomcat-8.5.16/bin/startup.sh"]
