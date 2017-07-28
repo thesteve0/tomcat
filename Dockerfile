@@ -10,9 +10,7 @@ RUN chmod 777 -R /apache-tomcat-8.5.16
 #change whatever permissions I need
 EXPOSE 8080
 
-
-
 #USER 1001
 
-#Run tomcat
+#Run tomcat - this doesn't work because the script backgrounds the process
 CMD ["/apache-tomcat-8.5.16/bin/startup.sh"]
