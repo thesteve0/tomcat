@@ -11,14 +11,14 @@ FROM thesteve0/java-fedora:latest
     RUN cd /tmp && wget http://apache.cs.utah.edu/tomcat/tomcat-8/v8.5.29/bin/apache-tomcat-8.5.29.zip && \
     unzip apache-tomcat-8.5.29.zip  -d / && \
     rm -rf /tmp/* && \
-    cd /apache-tomcat-8.5.16/webapps && \
+    cd /apache-tomcat-8.5.29/webapps && \
     rm -rf docs examples host-manager manager
 
 #provide our own catalina.sh - stops backgrounding and logging to CATALINA_OUT
-COPY files/bin/catalina.sh /apache-tomcat-8.5.16/bin
-COPY files/conf/* /apache-tomcat-8.5/.16/conf/
+COPY files/bin/catalina.sh /apache-tomcat-8.5.29/bin
+COPY files/conf/* /apache-tomcat-8.5.29/conf/
 
-RUN chmod 777 -R /apache-tomcat-8.5.16
+RUN chmod 777 -R /apache-tomcat-8.5.29
 
 #disable ajp and other things we don't need
 #probably means our own server.xml
@@ -30,4 +30,4 @@ EXPOSE 8080
 USER 1001
 
 #Run tomcat
-CMD ["/apache-tomcat-8.5.16/bin/startup.sh"]
+CMD ["/apache-tomcat-8.5.29/bin/startup.sh"]
