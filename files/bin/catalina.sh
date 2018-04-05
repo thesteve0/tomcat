@@ -1,6 +1,9 @@
 #!/bin/sh
 
-# Modified by Spousty@redhat.com to stop the process from backgrouding
+# Modified by Spousty@redhat.com to stop the process from backgrounding
+# Also line 245 since we are running in a container we constrained the memory and the threads
+# https://developers.redhat.com/blog/2017/04/04/openjdk-and-containers/
+
 # Licensed to the Apache Software Foundation (ASF) under one or more
 # contributor license agreements.  See the NOTICE file distributed with
 # this work for additional information regarding copyright ownership.
@@ -239,7 +242,7 @@ fi
 if [ -z "$JSSE_OPTS" ] ; then
   JSSE_OPTS="-Djdk.tls.ephemeralDHKeySize=2048"
 fi
-JAVA_OPTS="$JAVA_OPTS $JSSE_OPTS"
+JAVA_OPTS="$JAVA_OPTS $JSSE_OPTS -XX:MaxRam=2000m -XX:+UseSerialGC"
 
 # Register custom URL handlers
 # Do this here so custom URL handles (specifically 'war:...') can be used in the security policy
