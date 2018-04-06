@@ -242,7 +242,7 @@ fi
 if [ -z "$JSSE_OPTS" ] ; then
   JSSE_OPTS="-Djdk.tls.ephemeralDHKeySize=2048"
 fi
-JAVA_OPTS="$JAVA_OPTS $JSSE_OPTS -XX:MaxRam=2000m -XX:+UseSerialGC"
+JAVA_OPTS="$JAVA_OPTS $JSSE_OPTS -XX:MaxRAM=2G -XX:+UseSerialGC"
 
 # Register custom URL handlers
 # Do this here so custom URL handles (specifically 'war:...') can be used in the security policy
@@ -442,7 +442,7 @@ elif [ "$1" = "start" ] ; then
       -Dcatalina.base="\"$CATALINA_BASE\"" \
       -Dcatalina.home="\"$CATALINA_HOME\"" \
       -Djava.io.tmpdir="\"$CATALINA_TMPDIR\"" \
-      org.apache.catalina.startup.Bootstrap "$@" start 
+      org.apache.catalina.startup.Bootstrap "$@" start
 
   fi
 
