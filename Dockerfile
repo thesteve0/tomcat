@@ -8,7 +8,7 @@ FROM thesteve0/java-fedora:latest
 #tar -xvf tomcat-native.tar.gz && \
 #cd tomcat-native-1.2.12-src/native && \
 #./configure && make && make install && \
-    RUN cd /tmp && wget http://apache.cs.utah.edu/tomcat/tomcat-8/v8.5.29/bin/apache-tomcat-8.5.29.zip && \
+    RUN cd /tmp && wget https://archive.apache.org/dist/tomcat/tomcat-8/v8.5.29/bin/apache-tomcat-8.5.29.zip && \
     unzip apache-tomcat-8.5.29.zip  -d / && \
     rm -rf /tmp/* && \
     cd /apache-tomcat-8.5.29/webapps && \
